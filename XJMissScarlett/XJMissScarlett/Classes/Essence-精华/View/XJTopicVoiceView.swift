@@ -22,7 +22,7 @@ class XJTopicVoiceView: UIView {
         backImageView.height = 25
         
         playcountLabel.size = (playcountLabel.text! as NSString).sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(12)])
-        playcountLabel.size.width = playcountLabel.size.width + 3
+        playcountLabel.size.width = playcountLabel.size.width + 5
         
         playcountLabel.x = 0
         playcountLabel.y = self.height - playcountLabel.size.height
