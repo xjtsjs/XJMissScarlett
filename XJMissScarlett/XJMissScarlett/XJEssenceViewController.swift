@@ -10,8 +10,11 @@ import UIKit
 
 class XJEssenceViewController: UIViewController ,UIScrollViewDelegate{
     var indicatorView = UIView()
+    
     var selectedButton = UIButton()
+    
     var titlesView = UIScrollView()
+    
     var contentView = UIScrollView()
     
     
