@@ -26,7 +26,8 @@ class XJTopic: NSObject {
     var voicetime = 0
     var playcount = 0
     var videotime = 0
-    
+    var videouri = ""
+    var voiceuri = ""
     
     var pictureProgress = CGFloat(0)
     var voiceF = CGRectMake(0, 0, 0, 0)

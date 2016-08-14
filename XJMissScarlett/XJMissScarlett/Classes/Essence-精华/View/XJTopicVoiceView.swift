@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import AVFoundation
 class XJTopicVoiceView: UIView {
     var imageView = UIImageView()
     var voicetimeLabel = UILabel()
@@ -39,6 +39,8 @@ class XJTopicVoiceView: UIView {
         playButton.center.y = self.height/2
         
         imageView.frame = self.bounds
+        
+        
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -66,14 +68,34 @@ class XJTopicVoiceView: UIView {
         playButton.setImage(UIImage(named: "playButtonPlay"), forState: .Normal)
         playButton.setBackgroundImage(UIImage(named: "playButton"), forState: .Normal)
         
+        playButton.userInteractionEnabled = false
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showVoice)))
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func showVoice() -> Void {
+        if isPlay {
+            let url = NSURL(string: topic.voiceuri)
+            let item = AVPlayerItem(URL: url!)
+            
+            player.replaceCurrentItemWithPlayerItem(item)
+            player.play()
+            isPlay = false
+        }else{
+            player.pause()
+            isPlay = true
+        }
+        
+        
+    }
+    var isPlay = true
     
-    
+    var player = AVPlayer()
     var topic = XJTopic(){
     
         didSet{

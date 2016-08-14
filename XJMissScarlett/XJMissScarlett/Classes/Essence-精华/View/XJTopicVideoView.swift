@@ -7,7 +7,8 @@
 //
 
 import UIKit
-
+import AVKit
+import AVFoundation
 class XJTopicVideoView: UIView {
     var topic = XJTopic(){
         didSet{
@@ -53,6 +54,10 @@ class XJTopicVideoView: UIView {
         playButton.center.y = self.height/2
         
         imageView.frame = self.bounds
+        
+        
+        
+        
     }
 
     override init(frame: CGRect) {
@@ -79,12 +84,26 @@ class XJTopicVideoView: UIView {
         
         self.addSubview(playButton)
         playButton.setBackgroundImage(UIImage(named: "video-play"), forState: .Normal)
+        playButton.userInteractionEnabled = false
+        self.imageView.userInteractionEnabled = true
+        self.imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.showVideo)))
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    func showVideo() -> Void {
+        let videoURL = NSURL(string: topic.videouri)
+        let player = AVPlayer(URL: videoURL!)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(playerViewController, animated: true) {
+            playerViewController.player!.play()
+        }
+        
+        
+        
+    }
     
-
 }
