@@ -22,7 +22,7 @@ class XJTopicVoiceView: UIView {
         backImageView.height = 25
         
         playcountLabel.size = (playcountLabel.text! as NSString).sizeWithAttributes([NSFontAttributeName:UIFont.systemFontOfSize(12)])
-        playcountLabel.size.width = playcountLabel.size.width + 2
+        playcountLabel.size.width = playcountLabel.size.width + 3
         
         playcountLabel.x = 0
         playcountLabel.y = self.height - playcountLabel.size.height
@@ -55,13 +55,13 @@ class XJTopicVoiceView: UIView {
         self.addSubview(playcountLabel)
         playcountLabel.font = UIFont.systemFontOfSize(12)
         playcountLabel.backgroundColor = UIColor.XJ_rgbColor(0, g: 0, b: 0, a: 0.7)
-        playcountLabel.text = "222222"
+        playcountLabel.text = "22222222222"
         playcountLabel.textColor = UIColor.whiteColor()
         
         self.addSubview(voicetimeLabel)
         voicetimeLabel.font = UIFont.systemFontOfSize(12)
         voicetimeLabel.backgroundColor = UIColor.XJ_rgbColor(0, g: 0, b: 0, a: 0.7)
-        voicetimeLabel.text = "222222"
+        voicetimeLabel.text = "22222222222"
         voicetimeLabel.textColor = UIColor.whiteColor()
         
         self.addSubview(playButton)
